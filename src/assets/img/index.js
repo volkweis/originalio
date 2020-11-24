@@ -1,5 +1,5 @@
-const img = {
-    logo: require('./logo.png'),
-}
+const image = {
+  logo: require('./logo.png'),
+};
 
-export default img;
+export { image };
