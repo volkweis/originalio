@@ -8,3 +8,9 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
 `;
+
+export const LogoImg = styled.img`
+  height: 34px;
+  width: 148px;
+  margin-left: 53px;
+`;
