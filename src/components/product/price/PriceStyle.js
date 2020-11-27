@@ -35,7 +35,9 @@ export const CurrPrice = styled.span`
 export const Installment = styled.div`
   font-size: 12px;
   color: #7F7F7F;
-  margin-top: 2px;
+  height: 21px;
+  display: flex;
+  align-items: center;
 `;
 
 

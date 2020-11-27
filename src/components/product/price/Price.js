@@ -9,18 +9,16 @@ import {
 
 import {formatPrice} from '../../../utils/utils';
 
-function Price() {
-    const prevPrice = 69;
-    const currPrice = 55.20;
-    const installm = 6;
+function Price({price, discountPrice, installments}) {
+ 
   return (
     <Container>
       <PriceContainer>
-        <PrevPrice>R$ {formatPrice(prevPrice)}</PrevPrice>
+        <PrevPrice>R$ {formatPrice(price)}</PrevPrice>
         <Division>|</Division>
-        <CurrPrice>R$ {formatPrice(currPrice)}</CurrPrice>
+        <CurrPrice>R$ {formatPrice(discountPrice)}</CurrPrice>
       </PriceContainer>
-      <Installment>Ou {installm}x de R$ {formatPrice(currPrice / installm)}</Installment>
+      <Installment>Ou {installments}x de R$ {formatPrice(discountPrice / installments)}</Installment>
     </Container>
   );
 }

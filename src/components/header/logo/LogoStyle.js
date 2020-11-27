@@ -12,5 +12,5 @@ export const Container = styled.div`
 export const LogoImg = styled.img`
   height: 34px;
   width: 148px;
-  margin-left: 53px;
+  margin-left: 109px;
 `;

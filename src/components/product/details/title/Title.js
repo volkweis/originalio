@@ -1,9 +1,8 @@
 import { Container } from './TitleStyle';
 
-function Title() {
-  const prodTitle = 'RASTEIRA TIRA DEDO';
+function Title({name}) {
 
-  return <Container>{prodTitle}</Container>;
+  return <Container>{name}</Container>;
 }
 
 export { Title };

@@ -6,5 +6,5 @@ export const Container = styled.div`
   background: white;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 `;

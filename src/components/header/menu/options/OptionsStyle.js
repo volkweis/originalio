@@ -5,4 +5,6 @@ width: 754px;
 display: flex;
 flex-direction: row;
 justify-content: center;
-margin-right: 15px;`;
+margin-top: 4px;
+margin-left: 45px;
+text-transform: uppercase`;
