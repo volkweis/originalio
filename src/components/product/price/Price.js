@@ -7,18 +7,20 @@ import {
   Installment,
 } from './PriceStyle';
 
+import {formatPrice} from '../../../utils/utils';
+
 function Price() {
-    const prevPrice = 69.00;
+    const prevPrice = 69;
     const currPrice = 55.20;
     const installm = 6;
   return (
     <Container>
       <PriceContainer>
-        <PrevPrice>R$ {prevPrice.toFixed(2).toString().replace('.', ',')}</PrevPrice>
+        <PrevPrice>R$ {formatPrice(prevPrice)}</PrevPrice>
         <Division>|</Division>
-        <CurrPrice>R$ {currPrice.toFixed(2).toString().replace('.', ',')}</CurrPrice>
+        <CurrPrice>R$ {formatPrice(currPrice)}</CurrPrice>
       </PriceContainer>
-      <Installment>Ou {installm}x de R$ {(currPrice / installm).toFixed(2).toString().replace('.', ',')}</Installment>
+      <Installment>Ou {installm}x de R$ {formatPrice(currPrice / installm)}</Installment>
     </Container>
   );
 }
