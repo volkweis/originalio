@@ -6,7 +6,7 @@ export default function Options() {
   return (
     <Container>
       {optionList.map((option) => (
-        <Option option={option} />
+        <Option option={option} key={option}/>
       ))}
     </Container>
   );

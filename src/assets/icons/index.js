@@ -14,6 +14,7 @@ const icons = {
   right: require('./right.png'),
   search: require('./search.png'),
   up: require('./up.png'),
+  playVideo: require('./playVideo.png'),
 };
 
 export default icons;

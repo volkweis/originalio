@@ -10,9 +10,11 @@ export const Container = styled.div`
 
 export const TextContainer = styled.div`
   height: 36px;
+  width: 366px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   font-size: 14px;
 `;
 
@@ -36,7 +38,7 @@ background: ${({bgColor}) => bgColor || 'transparent'};
 `;
 
 export const SizeText = styled.span`
-  margin-left: 10px;
+  margin-right: 97px;
   color: #5f75aa;
 `;
 

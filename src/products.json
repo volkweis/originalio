@@ -12,7 +12,8 @@
         { "id": 3, "name": "Preto", "hex": "#000000" }
       ],
       "sizes": ["33", "34", "35", "36", "37", "38", "39", "40", "41", "42"],
-      "installments": 6
+      "installments": 6,
+      "description": "Rasteira em atanado soft com tira no dedo e fechamento de fivela. Possui sola sempre na cor do cabedal."
     }
   ]
 }

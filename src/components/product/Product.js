@@ -19,6 +19,7 @@ function Product() {
         colors={product.colors}
         installments={product.installments}
         sizes={product.sizes}
+        description={product.description}
       />
     </Container>
   );

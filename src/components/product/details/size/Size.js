@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { MeasureGuide } from '../measureGuide/MeasureGuide';
 import {
   Container,
   TextContainer,
@@ -15,6 +16,7 @@ function Size({ sizes }) {
       <TextContainer>
         <span>Tamanho:</span>
         <SizeText>({active})</SizeText>
+        <MeasureGuide/>
       </TextContainer>
       <SizeContainer>
         {sizes.map((size) => (
