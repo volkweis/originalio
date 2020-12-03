@@ -19,11 +19,11 @@ function Color({ colors }) {
       </ColorDescContainer>
       <ColorContainer>
         {colors.map((color) => (
-          <ColorBorder key={color.id} borderColor={color.id === active ? '#DE8F75' : 'transparent'}>
-            <ColorBox
-              color={color.hex}
-              onClick={() => setActive(color.id)}
-            />
+          <ColorBorder
+            key={color.id}
+            borderColor={color.id === active ? '#DE8F75' : 'transparent'}
+          >
+            <ColorBox color={color.hex} onClick={() => setActive(color.id)} />
           </ColorBorder>
         ))}
       </ColorContainer>

@@ -7,7 +7,7 @@ import {
   Installment,
 } from './PriceStyle';
 
-import {formatPrice} from '../../../utils/utils';
+import {formatPrice} from '../../utils/utils';
 
 function Price({price, discountPrice, installments}) {
  

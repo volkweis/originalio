@@ -6,9 +6,8 @@ import {
   VideoBg,
 } from './VideoButtonStyle';
 import icons from '../../../../assets/icons';
-import { image } from '../../../../assets/img';
 
-function VideoButton() {
+function VideoButton({image}) {
   return (
     <Container>
       <VideoTitle>Vídeo</VideoTitle>
@@ -17,7 +16,7 @@ function VideoButton() {
           src={icons.playVideo.default}
           alt={icons.playVideo.default}
         />
-        <VideoBg bgImg={image.mainProd.default} />
+        <VideoBg bgImg={image} />
       </VideoFrame>
     </Container>
   );

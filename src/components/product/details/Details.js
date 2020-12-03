@@ -1,6 +1,6 @@
 import { Button } from '../../button/Button';
-import { Color } from '../color/Color';
-import { Price } from '../price/Price';
+import { Color } from '../../color/Color';
+import { Price } from '../../price/Price';
 import { Container, DetailBox } from './DetailsStyle';
 import { ProdDescription } from './prodDescription/ProdDescription';
 import { Ref } from './ref/Ref';

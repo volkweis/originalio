@@ -2,15 +2,15 @@ import { Details } from './details/Details';
 import { Picture } from './picture/Picture';
 import { Container } from './ProductStyle';
 import { VerticalGallery } from './verticalGallery/VerticalGallery';
-import { products } from '../../products.json';
+import products  from '../../products';
 
 function Product() {
   const product = products[0];
 
   return (
     <Container>
-      <VerticalGallery />
-      <Picture />
+      <VerticalGallery images={product.images}/>
+      <Picture image={product.images.img1.default}/>
       <Details
         name={product.name}
         reference={product.ref}

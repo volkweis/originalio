@@ -5,6 +5,7 @@ export const Container = styled.div`
   width: 82px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 `;
 
 export const VideoTitle = styled.div`
@@ -22,6 +23,7 @@ export const VideoFrame = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 `;
 
 export const VideoBg = styled.div`

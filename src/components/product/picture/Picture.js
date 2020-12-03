@@ -1,10 +1,9 @@
 import { Container, Image } from './PictureStyle';
-import { image } from '../../../assets/img';
 
-function Picture() {
+function Picture({image}) {
   return (
     <Container>
-      <Image src={image.mainProd.default} alt={image.mainProd.default} />
+      <Image src={image} alt={image} />
     </Container>
   );
 }
