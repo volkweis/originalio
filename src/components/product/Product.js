@@ -10,7 +10,7 @@ function Product() {
   return (
     <Container>
       <VerticalGallery images={product.images}/>
-      <Picture image={product.images.img1.default}/>
+      <Picture image={product.images[0].default}/>
       <Details
         name={product.name}
         reference={product.ref}

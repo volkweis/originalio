@@ -3,9 +3,10 @@ import { Container } from './VerticalGalleryStyle';
 import { VideoButton } from './videoButton/VideoButton';
 
 function VerticalGallery({ images }) {
+  
   return (
     <Container>
-      <VideoButton image={images.img1.default} />
+      <VideoButton image={images[0].default} />
       <Carousel
         wrapperWidth="82px"
         wrapperHeight="463px;"
