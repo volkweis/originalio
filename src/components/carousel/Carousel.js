@@ -23,7 +23,7 @@ function Carousel({
   btnDownVisible,
 }) {
   const [top, setTop] = useState(0);
-  const [maxBox, setMaxBox] = useState(4);
+  const [maxBox] = useState(4);
   const [limitUp, setLimitUp] = useState(false);
   const [limitDown, setLimitDown] = useState(true);
   const productBoxArray = [];
