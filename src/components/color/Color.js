@@ -1,7 +1,7 @@
 import { useState } from 'react';
+import { ColorBox } from './ColorBox';
 import {
   Container,
-  ColorBox,
   ColorDescContainer,
   ColorName,
   ColorContainer,
@@ -22,8 +22,9 @@ function Color({ colors }) {
           <ColorBorder
             key={color.id}
             borderColor={color.id === active ? '#DE8F75' : 'transparent'}
+            onClick={() => setActive(color.id)}
           >
-            <ColorBox color={color.hex} onClick={() => setActive(color.id)} />
+            <ColorBox color={color.hex}></ColorBox>
           </ColorBorder>
         ))}
       </ColorContainer>

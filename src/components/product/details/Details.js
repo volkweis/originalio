@@ -23,6 +23,7 @@ function Details({
         <Title name={name} />
         <Ref reference={reference} />
         <Price
+          fullPrice="true"
           price={price}
           discountPrice={discountPrice}
           installments={installments}

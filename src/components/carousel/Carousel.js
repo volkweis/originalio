@@ -7,13 +7,19 @@ import {
   HorizontalBtnWrapper,
   BtnUp,
   BtnDown,
+  ProdColors,
 } from './CarouselStyle';
+
+import { ColorBox } from '../color/ColorBox';
 
 import icons from '../../assets/icons';
 import { useState } from 'react';
+import { Price } from '../price/Price';
 
 function Carousel({
   images,
+  products,
+  isRecommend,
   wrapperWidth,
   wrapperHeight,
   wrapperDirection,
@@ -21,6 +27,9 @@ function Carousel({
   imgHeight,
   btnUpVisible,
   btnDownVisible,
+  infoVisible,
+  prodMarginRight,
+  prodMarginLeft,
 }) {
   const [top, setTop] = useState(0);
   const [maxBox] = useState(4);
@@ -56,23 +65,73 @@ function Carousel({
         wrapperHeight={wrapperHeight}
         wrapperDirection={wrapperDirection}
       >
-        <BtnUp btnUpVisible={btnUpVisible} onClick={increment}>
+        <BtnUp
+          btnUpVisible={btnUpVisible}
+          onClick={increment}
+          btnUpOpacity={limitUp ? '0.3' : '1'}
+        >
           <img src={icons.up.default} alt={icons.up.default} />
         </BtnUp>
         {productBoxArray.map((product) => {
-          return (
-            <ProductBox key={product}>
-              <ProductImg
-                imgWidth={imgWidth}
-                imgHeight={imgHeight}
-                bgSize={imgWidth}
-                imgBg={images[top + product].default}
-              />
-              <ProductInfo />
-            </ProductBox>
-          );
+          if (isRecommend === 'true') {
+            return (
+              <ProductBox
+                key={product}
+                prodMarginRight={prodMarginRight}
+                prodMarginLeft={prodMarginLeft}
+              >
+                <ProductImg
+                  imgWidth={imgWidth}
+                  imgHeight={imgHeight}
+                  bgSize={imgWidth}
+                  imgBg={products[top + product].images[0].default}
+                />
+                <ProductInfo infoVisible={infoVisible}>
+                  <Price
+                    fullPrice="false"
+                    discountPrice={products[top + product].discountPrice}
+                    priceFontSize="16px"
+                    priceColor="#000"
+                    priceFontWeight="normal"
+                    priceMarginLeft="0px"
+                    priceTop="0px"
+                    priceLeft="0px"
+                  ></Price>
+                  <ProdColors>
+                    {products[top + product].colors.map((color) => {
+                      return (
+                        <ColorBox
+                          key={color.id}
+                          color={color.hex}
+                          height="13px"
+                          width="13px"
+                          marginLeft="6px"
+                        />
+                      );
+                    })}
+                  </ProdColors>
+                </ProductInfo>
+              </ProductBox>
+            );
+          } else {
+            return (
+              <ProductBox key={product}>
+                <ProductImg
+                  imgWidth={imgWidth}
+                  imgHeight={imgHeight}
+                  bgSize={imgWidth}
+                  imgBg={images[top + product].default}
+                />
+                <ProductInfo />
+              </ProductBox>
+            );
+          }
         })}
-        <BtnDown btnDownVisible={btnDownVisible} onClick={decrement}>
+        <BtnDown
+          btnDownVisible={btnDownVisible}
+          onClick={decrement}
+          btnDownOpacity={limitDown ? '0.3' : '1'}
+        >
           <img src={icons.down.default} alt={icons.down.default} />
         </BtnDown>
         <HorizontalBtnWrapper></HorizontalBtnWrapper>

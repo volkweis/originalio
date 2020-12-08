@@ -8,6 +8,7 @@ function VerticalGallery({ images }) {
     <Container>
       <VideoButton image={images[0].default} />
       <Carousel
+        isRecommend='false'
         wrapperWidth="82px"
         wrapperHeight="463px;"
         wrapperDirection="column"

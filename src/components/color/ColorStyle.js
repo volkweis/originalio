@@ -25,14 +25,6 @@ align-items: center;
 margin-right: 15px;
 `;
 
-export const ColorBox = styled.div`
-background: ${({color}) => color || '#bada55'};
-height: 22px;
-width: 22px;
-border-radius: 50%;
-cursor: pointer;
-`;
-
 export const ColorDescContainer = styled.div`
 height: 36px;
 display: flex;

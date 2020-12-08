@@ -17,6 +17,8 @@ export const Wrapper = styled.div`
 export const ProductBox = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: ${({ prodMarginLeft }) => prodMarginLeft || '0px'};
+  margin-right: ${({ prodMarginRight }) => prodMarginRight || '0px'};
 `;
 
 export const ProductImg = styled.div`
@@ -44,11 +46,18 @@ export const HorizontalBtnWrapper = styled.div`
 export const BtnUp = styled.div`
   text-align: center;
   margin-bottom: 10px;
+  opacity: ${({ btnUpOpacity }) => btnUpOpacity};
   visibility: ${({ btnUpVisible }) => btnUpVisible || 'hidden'};
 `;
 
 export const BtnDown = styled.div`
   text-align: center;
   margin-top: 5px;
+  opacity: ${({ btnDownOpacity }) => btnDownOpacity};
   visibility: ${({ btnDownVisible }) => btnDownVisible || 'hidden'};
+`;
+
+export const ProdColors = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
