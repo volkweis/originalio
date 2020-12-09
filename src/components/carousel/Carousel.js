@@ -8,6 +8,7 @@ import {
   BtnUp,
   BtnDown,
   ProdColors,
+  Summary,
 } from './CarouselStyle';
 
 import { ColorBox } from '../color/ColorBox';
@@ -15,6 +16,7 @@ import { ColorBox } from '../color/ColorBox';
 import icons from '../../assets/icons';
 import { useState } from 'react';
 import { Price } from '../price/Price';
+import { BtnPrevNext } from '../btnPrevNext/BtnPrevNext';
 
 function Carousel({
   images,
@@ -30,6 +32,7 @@ function Carousel({
   infoVisible,
   prodMarginRight,
   prodMarginLeft,
+  horWrapVisible,
 }) {
   const [top, setTop] = useState(0);
   const [maxBox] = useState(4);
@@ -41,13 +44,17 @@ function Carousel({
     productBoxArray.push(i);
   }
 
-  const increment = () => {
+  const incrementVertical = () => {
     if (images[top + productBoxArray.length] !== undefined) {
       setTop(top + 1);
       if (top + productBoxArray.length === images.length - 1) setLimitUp(true);
       if (limitDown === true) setLimitDown(false);
     }
   };
+
+  const incrementHorizontal = () => {
+    if(top < products.length-1) setTop(top + 1);
+  }
 
   const decrement = () => {
     if (top > 0) {
@@ -57,9 +64,11 @@ function Carousel({
     }
   };
 
+
+
   return (
     <Container>
-      {console.log('Top', top, 'UP', limitUp, 'DOWN', limitDown)}
+      {console.log("top", top)}
       <Wrapper
         wrapperWidth={wrapperWidth}
         wrapperHeight={wrapperHeight}
@@ -67,16 +76,16 @@ function Carousel({
       >
         <BtnUp
           btnUpVisible={btnUpVisible}
-          onClick={increment}
+          onClick={incrementVertical}
           btnUpOpacity={limitUp ? '0.3' : '1'}
         >
           <img src={icons.up.default} alt={icons.up.default} />
         </BtnUp>
-        {productBoxArray.map((product) => {
+        {productBoxArray.map((productBox) => {
           if (isRecommend === 'true') {
             return (
               <ProductBox
-                key={product}
+                key={productBox}
                 prodMarginRight={prodMarginRight}
                 prodMarginLeft={prodMarginLeft}
               >
@@ -84,12 +93,12 @@ function Carousel({
                   imgWidth={imgWidth}
                   imgHeight={imgHeight}
                   bgSize={imgWidth}
-                  imgBg={products[top + product].images[0].default}
+                  imgBg={products[top + productBox].images[0].default}
                 />
                 <ProductInfo infoVisible={infoVisible}>
                   <Price
                     fullPrice="false"
-                    discountPrice={products[top + product].discountPrice}
+                    discountPrice={products[top + productBox].discountPrice}
                     priceFontSize="16px"
                     priceColor="#000"
                     priceFontWeight="normal"
@@ -98,7 +107,7 @@ function Carousel({
                     priceLeft="0px"
                   ></Price>
                   <ProdColors>
-                    {products[top + product].colors.map((color) => {
+                    {products[top + productBox].colors.map((color) => {
                       return (
                         <ColorBox
                           key={color.id}
@@ -115,12 +124,12 @@ function Carousel({
             );
           } else {
             return (
-              <ProductBox key={product}>
+              <ProductBox key={productBox}>
                 <ProductImg
                   imgWidth={imgWidth}
                   imgHeight={imgHeight}
                   bgSize={imgWidth}
-                  imgBg={images[top + product].default}
+                  imgBg={images[top + productBox].default}
                 />
                 <ProductInfo />
               </ProductBox>
@@ -134,8 +143,12 @@ function Carousel({
         >
           <img src={icons.down.default} alt={icons.down.default} />
         </BtnDown>
-        <HorizontalBtnWrapper></HorizontalBtnWrapper>
       </Wrapper>
+      <HorizontalBtnWrapper horWrapVisible={horWrapVisible}>
+        <div onClick={decrement}><BtnPrevNext arrow={icons.left.default}/></div>
+        <Summary>1 de 3</Summary>
+        <div onClick={incrementHorizontal}><BtnPrevNext arrow={icons.right.default} /></div>
+      </HorizontalBtnWrapper>
     </Container>
   );
 }

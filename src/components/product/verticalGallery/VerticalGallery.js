@@ -10,7 +10,6 @@ function VerticalGallery({ images }) {
       <Carousel
         isRecommend='false'
         wrapperWidth="82px"
-        wrapperHeight="463px;"
         wrapperDirection="column"
         imgWidth="82px"
         imgHeight="94px"

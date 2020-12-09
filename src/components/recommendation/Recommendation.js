@@ -10,13 +10,13 @@ function Recommendation({ products }) {
         isRecommend="true"
         products={products}
         wrapperWidth="100%"
-        wrapperHeight="457px"
         wrapperDirection="row"
         imgWidth="290px"
         imgHeight="374px"
         infoVisible="visible"
         prodMarginRight="5px"
         prodMarginLeft="5px"
+        horWrapVisible="visible"
       />
     </Container>
   );
