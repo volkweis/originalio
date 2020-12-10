@@ -44,17 +44,22 @@ function Carousel({
     productBoxArray.push(i);
   }
 
-  const incrementVertical = () => {
-    if (images[top + productBoxArray.length] !== undefined) {
+  const increment = () => {
+    let condition;
+    let size;
+    if (images) {
+      condition = images[top + productBoxArray.length];
+      size = images.length;
+    } else {
+      condition = products[top + productBoxArray.length];
+      size = products.length;
+    }
+    if (condition !== undefined) {
       setTop(top + 1);
-      if (top + productBoxArray.length === images.length - 1) setLimitUp(true);
+      if (top + productBoxArray.length === size - 1) setLimitUp(true);
       if (limitDown === true) setLimitDown(false);
     }
   };
-
-  const incrementHorizontal = () => {
-    if(top < products.length-1) setTop(top + 1);
-  }
 
   const decrement = () => {
     if (top > 0) {
@@ -64,11 +69,9 @@ function Carousel({
     }
   };
 
-
-
   return (
     <Container>
-      {console.log("top", top)}
+      {console.log('limitUp', limitUp, 'limitDown', limitDown)}
       <Wrapper
         wrapperWidth={wrapperWidth}
         wrapperHeight={wrapperHeight}
@@ -76,7 +79,7 @@ function Carousel({
       >
         <BtnUp
           btnUpVisible={btnUpVisible}
-          onClick={incrementVertical}
+          onClick={increment}
           btnUpOpacity={limitUp ? '0.3' : '1'}
         >
           <img src={icons.up.default} alt={icons.up.default} />
@@ -145,9 +148,19 @@ function Carousel({
         </BtnDown>
       </Wrapper>
       <HorizontalBtnWrapper horWrapVisible={horWrapVisible}>
-        <div onClick={decrement}><BtnPrevNext arrow={icons.left.default}/></div>
+        <div onClick={decrement}>
+          <BtnPrevNext
+            arrow={icons.left.default}
+            prevNextOpacity={limitDown ? '0.3' : '1'}
+          />
+        </div>
         <Summary>1 de 3</Summary>
-        <div onClick={incrementHorizontal}><BtnPrevNext arrow={icons.right.default} /></div>
+        <div onClick={increment}>
+          <BtnPrevNext
+            arrow={icons.right.default}
+            prevNextOpacity={limitUp ? '0.3' : '1'}
+          />
+        </div>
       </HorizontalBtnWrapper>
     </Container>
   );

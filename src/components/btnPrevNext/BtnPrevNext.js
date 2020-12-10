@@ -1,6 +1,11 @@
-import { Container } from "./BtnPrevNextStyle";
+import { Container } from './BtnPrevNextStyle';
 
-function BtnPrevNext({arrow}) {
-  return <Container><img src={arrow} alt={arrow} /></Container>;
+function BtnPrevNext({ arrow, prevNextOpacity }) {
+  return (
+    <Container prevNextOpacity={prevNextOpacity}>
+      {console.log(prevNextOpacity)}
+      <img src={arrow} alt={arrow} />
+    </Container>
+  );
 }
 export { BtnPrevNext };
